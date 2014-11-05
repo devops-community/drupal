@@ -22,7 +22,9 @@ We have included as well a task (`tasks/install-drupal.yml`) that:
   1. Fetch the latest Drupal package from drupal.org
   1. Unpack the Drupal package
   1. Write the configuration file (to connect it to MySQL)
-  1. Update the upload folders
+  1. Prepare the upload folders
+
+Finally you can access (the first time) to the installer at http://your-server/install.php and proceed to the final setup.
 
 The current repo provides a very simple setup. Hack at will!
 

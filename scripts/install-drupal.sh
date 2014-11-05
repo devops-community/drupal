@@ -36,19 +36,19 @@ echo "Preparing Drupal configuration... " >&2
 cd $WORKDIR
 if [ ! -e sites/default/settings.php ]; then
     cp sites/default/default.settings.php sites/default/settings.php
-    echo >> sites/default/settings.php < EOF
+    cat >> sites/default/settings.php << EOF
 
 /**
  * devo.ps database setup
  */
 
 \$databases['default']['default'] = array(
-    'driver' =\> 'mysql',
-    'database' =\> '$DB_NAME',
-    'username' =\> '$DB_USER',
-    'password' =\> '$DB_PASS',
-    'host' =\> '$DB_HOST',
-    'collation' =\> 'utf8_general_ci',
+    'driver' => 'mysql',
+    'database' => '$DB_NAME',
+    'username' => '$DB_USER',
+    'password' => '$DB_PASS',
+    'host' => '$DB_HOST',
+    'collation' => 'utf8_general_ci',
 );
 
 EOF
@@ -63,7 +63,7 @@ fi
 echo "Setting permissions for the files folders" >&2
 for folder in sites/default/files sites/default/private sites/default/private/files
 do
-    mkdir -p $folder
+    sudo mkdir -p $folder
     sudo chmod 775 $folder
     sudo chown -R $RUN_USER:$RUN_USER $folder
 done

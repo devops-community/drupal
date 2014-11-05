@@ -1,0 +1,24 @@
+# Find out more about tasks: http://docs.devo.ps/manual/tasks
+
+id: install-drupal
+name: Install Drupal
+type: task
+
+targets:
+  - drupal
+
+vars:
+  workdir: /var/www/drupal
+
+steps:
+  - run: devops scripts/install-drupal.sh
+    options:
+      # Those options are available within the script as ENV variables
+      VERSION: '{{ drupal.version }}'
+      DB_NAME: drupal
+      DB_USER: drupal
+      DB_PASS: '{{ nodes.drupal.configuration.mysql.users.drupal.password }}'
+      DB_HOST: '{{ nodes.drupal.host }}'
+      WORKDIR: '{{ workdir }}'
+      RUN_USER: '{{ nodes.drupal.configuration.php.fpm.pool.user }}'
+

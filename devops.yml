@@ -1,0 +1,17 @@
+name: Drupal
+description: A simple boilerplate setup for your Drupal website, using NGINX, PHP and MySQL.
+image: https://raw.githubusercontent.com/devops-community/drupal/master/drupal-logo.png
+vars:
+  drupal.version:
+    label: Drupal version
+    default: 7.32
+    description: The Drupal version to install, see https://www.drupal.org/project/drupal for more details
+  provider.name:
+    label: Cloud provider
+    default: digitalocean
+    description: The id of the provider you want to use, see http://docs.devo.ps/manual/nodes/#format
+  provider.size:
+    label: Server size
+    default: 66
+    description: Size of the server you will deploy your app on, see http://docs.devo.ps/providers/digitalocean/
+

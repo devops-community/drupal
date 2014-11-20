@@ -14,11 +14,19 @@ provider:
 
 
 services:
+  backup: "*"
   mysql: "*"
   php: "*"
   nginx: "*"
 
 configuration:
+  # backup:
+  #   # Define local cron to run the backup
+  #   schedules:
+  #     - '0 3 * * *'
+  #   # And save the archive in a "daily" folder
+  #   path: '/opt/backup/%Y/%m/%d/daily'
+
   mysql:
     # Define your MySQL users
     users:

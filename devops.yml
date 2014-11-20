@@ -4,7 +4,7 @@ image: https://raw.githubusercontent.com/devops-community/drupal/master/drupal-l
 vars:
   drupal.version:
     label: Drupal version
-    default: 7.32
+    default: 7.33
     description: The Drupal version to install, see https://www.drupal.org/project/drupal for more details
   provider.name:
     label: Cloud provider

@@ -1,0 +1,30 @@
+# Find out more about tasks: http://docs.devo.ps/manual/tasks
+
+id: backup-drupal
+name: Backup Drupal
+type: task
+
+targets:
+  - drupal
+
+triggers:
+  crons:
+    # At 4am every day
+    - '0 4 * * *'
+  webhooks: 
+    - path: backup/drupal
+
+vars:
+  workdir: /var/www/drupal
+
+steps:
+  # Backup the MySQL drupal database and workdir
+  - run: devops backup run
+    options:
+      path: '/opt/backup/%Y/%m/%d/%H-%M/drupal'
+      files:
+        - '{{ workdir }}'
+      mysql_dbs:
+        - drupal
+
+  # All the backups are available in /opt/backup/YYYY/MM/DD/HH-MM/drupal
